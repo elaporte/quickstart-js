@@ -5,6 +5,12 @@ window.addEventListener('load', function() {
     var provider = new firebase.auth.GoogleAuthProvider();
       firebase.auth().signInWithPopup(provider);
   });
+  var signOutButton = document.getElementById('sign-out-button');
+  signOutButton.addEventListener('click', function(){
+      firebase.auth().signOut();
+      
+      console.log("signOut");
+  });
 
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
